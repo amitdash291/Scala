@@ -8,15 +8,10 @@ object Api {
   //// "Either" could also be used but is not a recommended approach
   //def whoWon(board: FinishedBoard): Either[Player, Nothing] = ???
 
-  def playerAt(board: Board)(position: Position): Option[Player] = {
-    board match {
-      case EmptyBoard => Nothing
-      case HasBeenPlayedBoard(cells) => {
-        cells match {
-          case EmptyCellType => Nothing
-          case OccupiedCellType(player) => player
-        }
-      }
+  def playerAt(hasBeenPlayedBoard: HasBeenPlayedBoard)(position: Position): Option[Player] = {
+    hasBeenPlayedBoard.rows[position.row].cell[position.column] match {
+      case EmptyCellType => Nothing
+      case OccupiedCellType(player) => player
     }
   }
 

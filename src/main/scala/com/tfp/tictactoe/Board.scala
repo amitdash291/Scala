@@ -6,6 +6,6 @@ sealed trait HasBeenPlayedBoard extends Board
 sealed trait FinishedBoard extends HasBeenPlayedBoard
 
 case object EmptyBoard extends PlayableBoard
-case class InPlayBoard(cells: List[Cell]) extends PlayableBoard with HasBeenPlayedBoard
-case class WinningBoard(cells: List[Cell]) extends FinishedBoard
-case class FullBoard(cells: List[Cell]) extends FinishedBoard
+case class InPlayBoard(rows: List[Row]) extends PlayableBoard with HasBeenPlayedBoard
+case class WinningBoard(rows: List[Row]) extends FinishedBoard
+case class FullBoard(rows: List[Row]) extends FinishedBoard

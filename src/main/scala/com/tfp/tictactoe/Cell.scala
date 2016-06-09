@@ -5,3 +5,4 @@ case object EmptyCellType extends CellType
 case class OccupiedCellType(player: Player) extends CellType
 
 case class Cell(position: Position, cellType: CellType)
+type Row = List[Cell]
